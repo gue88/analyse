@@ -1,0 +1,7 @@
+pandas
+requests
+jupyter
+numpy
+matplotlib
+finplot
+jupyterlab
