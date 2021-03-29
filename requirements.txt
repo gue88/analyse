@@ -1,7 +1,12 @@
-pandas
+# python libraries
 requests
-jupyter
+
+# data science libraries
+pandas
 numpy
 matplotlib
-finplot
+jupyter
 jupyterlab
+
+# finance libraries
+finplot
