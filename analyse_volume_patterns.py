@@ -115,10 +115,16 @@ def process_file(filename):
 if __name__ == '__main__':
     filenames = glob.glob("ohlc1m/*.csv")
     pivot_tables = []
+    blacklist = ["CLIS", "CYIO"]
     for filename in filenames:
-        df, pivot_table = process_file(filename)
-        print(filename)
-        pivot_tables.append(pivot_table)
+        ticker = get_ticker(filename)
+        if ticker in blacklist:
+            # we want to ignore this ticker
+            pass
+        else:
+            df, pivot_table = process_file(filename)
+            print(filename)
+            pivot_tables.append(pivot_table)
     table = pd.concat(pivot_tables).groupby('pct_type').sum()
     table_n = pd.concat(pivot_tables)
 
