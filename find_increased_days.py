@@ -13,7 +13,7 @@ def find_increased_days(df):
         'volume': 'sum',
         'symbol': 'first'}
 
-    df_1D = df.resample('1D').agg(agg_data)
+    df_1D = df.resample('30T').agg(agg_data)
     df_1D['pct'] = (df_1D['close'] - df_1D['open']) * 100 / df_1D['open']
 
     criterion1 = df_1D['pct'] > 20
@@ -51,8 +51,6 @@ def main():
 
     megadf = pd.concat(results)
     megadf.to_csv('megadf.csv')
-    print('CSV Successfully Generated.')
-
 
 
 main()
